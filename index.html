@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Spin Wheel Example - IIFE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="icon" href="data:image/x-icon;," type="image/x-icon">
+  <link rel="stylesheet" href="index.css"/>
+  <script src="spin-wheel-iife.js"></script>
+
+  <script>
+    window.onload = () => {
+
+      const props = {
+        debug: false,
+        items: [
+          {
+            label: 'Premio 1',
+            backgroundColor: '#f61',
+          },
+          {
+            label: 'Premio 2',
+            backgroundColor: '#a87',
+          },
+          {
+            label: 'Premio 3',
+            backgroundColor: '#ba4',
+          },
+          {
+            label: 'Premio 4',
+            backgroundColor: '#d48',
+          },
+        ],
+      };
+
+      const container = document.querySelector('.wheel-wrapper');
+
+      window.wheel = new spinWheel.Wheel(container, props);
+    }
+
+    function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function girar() {
+      let random = getRandomNumber(50, 1000);
+      console.log(random)
+      window.wheel.spin(random);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="gui-wrapper">
+    <p>Click-drag (or flick) to spin the wheel.</p>
+  </div>
+
+  <div class="wheel-wrapper"></div>
+
+  <div>
+    <button type="button" onclick="girar()">Girar</button>
+  </div>
+</body>
+
+</html>
