@@ -48,11 +48,7 @@
 
       var numDisponibles = document.getElementById('numDisponibles');
 
-      if(numGiros != 0){
-        numDisponibles.textContent = `Numero de giros disponibles ${numGiros}`;
-      }else{
-        numDisponibles.textContent = `No te quedan giros disponibles`;
-      }
+      numDisponibles.textContent = `Numero de giros disponibles: ${numGiros}`;
     }
 
     function getRandomNumber(min, max) {
@@ -65,6 +61,12 @@
         console.log(random);
         window.wheel.spin(random);
         numGiros--;
+      }
+
+      if(numGiros != 0){
+        numDisponibles.textContent = `Numero de giros disponibles: ${numGiros}`;
+      }else{
+        numDisponibles.textContent = `No te quedan giros disponibles`;
       }
     }
   </script>
