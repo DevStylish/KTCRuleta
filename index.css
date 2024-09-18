@@ -30,8 +30,16 @@ body {
 
 .wheel-wrapper {
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 50%;
+}
+
+@media (max-width: 1258px) {
+  .wheel-wrapper {
+    overflow: hidden;
+    height: 80%;
+    width: 80%;
+  }
 }
 
 .gui-wrapper {

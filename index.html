@@ -12,28 +12,31 @@
 
   <script>
     var numGiros = 3;
+    const imagen = new Image();
+
+    imagen.src = './ruleta-ktc.png';
 
     window.onload = () => {
 
       const props = {
         debug: false,
         isInteractive: false,
-        pointerAngle: 1,
+        overlayImage: imagen,
         items: [
           {
-            label: 'Premio 1',
+            label: '  Premio 1',
             backgroundColor: '#f61',
           },
           {
-            label: 'Premio 2',
+            label: '  Premio 2',
             backgroundColor: '#a87',
           },
           {
-            label: 'Premio 3',
+            label: '  Premio 3',
             backgroundColor: '#ba4',
           },
           {
-            label: 'Premio 4',
+            label: '  Premio 4',
             backgroundColor: '#d48',
           },
         ],
@@ -42,6 +45,14 @@
       const container = document.querySelector('.wheel-wrapper');
 
       window.wheel = new spinWheel.Wheel(container, props);
+
+      var numDisponibles = document.getElementById('numDisponibles');
+
+      if(numGiros != 0){
+        numDisponibles.textContent = `Numero de giros disponibles ${numGiros}`;
+      }else{
+        numDisponibles.textContent = `No te quedan giros disponibles`;
+      }
     }
 
     function getRandomNumber(min, max) {
@@ -51,9 +62,9 @@
     function girar() {
       if(numGiros !== 0){
         let random = getRandomNumber(50, 1000);
-        console.log(random)
+        console.log(random);
         window.wheel.spin(random);
-        numGiros--
+        numGiros--;
       }
     }
   </script>
@@ -61,14 +72,23 @@
 
 <body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <div class="gui-wrapper">
-    <p>Ruleta KTC</p>
+  <div class="gui-wrapper text-center">
+    <p class="fs-1">Ruleta KTC</p>
   </div>
 
-  <div class="wheel-wrapper" ></div>
+  <div class="d-flex align-self-center wheel-wrapper" ></div>
 
-  <div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-success" onclick="girar()">Girar</button>
+  <div class="d-flex justify-content-center mb-5">
+    <div>
+      <p id="numDisponibles" class="fs-3"></p>
+      <div class="d-flex justify-content-center mb-5">
+        <button type="button" class="btn btn-success" onclick="girar()">Girar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <p class="fs-1">Sube a tu historia el resultado y gana un premio</p>
   </div>
 </body>
 
