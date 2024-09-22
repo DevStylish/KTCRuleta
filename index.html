@@ -19,23 +19,55 @@
 
     function obtenerPremio(index) {
       let retos = [
-        "Zancadas sincronizadas con un colega durante 15 segundos",
-        "5 sentadillas en 10 segundos",
-        "15 jumping jacks en 15 segundos",
-        "Mantente en sentadilla isométrica durante 20 segundos",
-        "Realiza 15 repeticiones de curl de bíceps con una silla de feria",
-        "Realízate una foto imitando sacando bíceps",
-        "Foto aguantando un vaso (de plastico) sobre la cabeza sin manos",
-        "ADIVINANZA: Soy fuerte, pero no lo ves. Para moverse, debes tener pies. ¿Qué parte del cuerpo soy?",
-        "ADIVINANZA: Salto, me agacho, vuelvo a saltar. Me acuesto, me levanto, no dejo de brincar. Si quieres estar en forma y sudar, con este ejercicio no pararás. ¿Qué ejercicio es?",
-        "ADIVINANZA: Subo y bajo sin descansar, mis piernas queman de tanto sudar. Parece que me siento pero no me voy a quedar, y aunque no hay silla, no dejo de bajar. ¿Qué ejercicio es?"
+        {
+          message: "Zancadas sincronizadas con un colega durante 15 segundos",
+          submessage: "Hazte un foto o un video y subelo a Instagram para verificar que has realizado el reto"
+        },
+        {
+          message: "5 sentadillas en 10 segundos",
+          submessage: "Hazte un foto o un video y subelo a Instagram para verificar que has realizado el reto"
+        },
+        {
+          message: "15 jumping jacks en 15 segundos",
+          submessage: "Hazte un foto o un video y subelo a Instagram para verificar que has realizado el reto"
+        },
+        { 
+          message: "Mantente en sentadilla isométrica durante 20 segundos", 
+          submessage: "Hazte un foto o un video y subelo a Instagram para verificar que has realizado el reto"
+        },
+        {
+          message: "Realiza 15 repeticiones de curl de bíceps con una silla de feria",
+          submessage: "Hazte un foto o un video y subelo a Instagram para verificar que has realizado el reto"
+        },
+        {
+          message: "Realízate una foto imitando sacar bíceps",
+          submessage: "Subela a Instagram para verificar que has realizado el reto"
+        },
+        {
+          message: "Foto aguantando un vaso (de plastico) sobre la cabeza sin manos",
+          submessage: "Subela a Instagram para verificar que has realizado el reto"
+        },
+        {
+          message: "ADIVINANZA: Soy fuerte, pero no lo ves. Para moverse, debes tener pies. ¿Qué parte del cuerpo soy?",
+          submessage: "Sube tu respuesta a Instagram para verificar que has realizado el reto"
+        },
+        {
+          message: "ADIVINANZA: Salto, me agacho, vuelvo a saltar. Me acuesto, me levanto, no dejo de brincar. Si quieres estar en forma y sudar, con este ejercicio no pararás. ¿Qué ejercicio es?",
+          submessage: "Sube tu respuesta a Instagram para verificar que has realizado el reto"
+        },
+        {
+          message: "ADIVINANZA: Subo y bajo sin descansar, mis piernas queman de tanto sudar. Parece que me siento pero no me voy a quedar, y aunque no hay silla, no dejo de bajar. ¿Qué ejercicio es?",
+          submessage: "Sube tu respuesta a Instagram para verificar que has realizado el reto"
+        }
       ];
 
       var tituloReto = document.getElementById('modalRetoLabel');
       var textoReto = document.getElementById('modalRetoTexto');
+      var subtextoReto = document.getElementById('modalRetoSubtexto');
 
       tituloReto.textContent = `Reto ${index + 1}`;
-      textoReto.textContent = retos[index];
+      textoReto.textContent = retos[index].message;
+      subtextoReto.textContent = retos[index].submessage;
 
       $('#modalReto').modal('show')
 
@@ -151,7 +183,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p id="modalRetoTexto"></p>
+          <p id="modalRetoTexto" class="pb-1"></p>
+          <p id="modalRetoSubtexto" class="fw-bold"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-success" data-bs-dismiss="modal">Entendido</button>
