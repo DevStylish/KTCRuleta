@@ -132,6 +132,10 @@
       var numDisponibles = document.getElementById('numDisponibles');
 
       numDisponibles.textContent = `Numero de giros disponibles: ${numGiros}`;
+
+      window.onresize = () => {
+          window.wheel.resize();
+      }
     }
 
     function getRandomNumber(min, max) {
@@ -195,7 +199,7 @@
   </div>
 
   <div class="bg-success-subtle">
-    <div class="text-center m-5">
+    <div class="text-center subtexto">
       <p class="fst-italic fs-4">Para validar que has conseguido realizar el reto, debes subir una historia mencionando a @kinothecoach o enviar un md por privado a @kinothecoach</p>
       <p class="fw-bold fs-5">Válido hasta el 30/09</p>
     </div>

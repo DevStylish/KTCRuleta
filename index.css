@@ -34,11 +34,19 @@ body {
   width: 50%;
 }
 
+.subtexto {
+  margin: 3rem !important;
+}
+
 @media (max-width: 1258px) {
   .wheel-wrapper {
     overflow: hidden;
     height: 80%;
     width: 80%;
+  }
+
+  .subtexto {
+    margin: 0rem !important;
   }
 }
 
